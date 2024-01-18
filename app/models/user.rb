@@ -8,7 +8,9 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
-  before_create :randmoize_id
+  has_one_attached :avatar
+
+  # before_create :randmoize_id
 
   private
 
@@ -16,6 +18,6 @@ class User < ApplicationRecord
     begin
       self.id = SecureRandom.random_number
       (1_000_000_000)
-    end while User.wehre(id: self.id).exists?
+    end while User.where(id: self.id).exists?
   end
 end
