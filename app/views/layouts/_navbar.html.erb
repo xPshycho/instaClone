@@ -30,10 +30,22 @@
           <%# <a class="nav-link disabled" aria-disabled="true">Disabled</a> %>
           <%= link_to "About", home_about_path, class:"nav-link" %>
         </li>
+        
+        <% if !user_signed_in? %>
+            <li class="nav-item">
+                <%# <a class="nav-link disabled" aria-disabled="true">Disabled</a> %>
+                <%= link_to "Sign Up!", new_user_registration_path, class:"nav-link" %>
+            </li>
+        <% end %>
+        
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
+        <% if user_signed_in? %>
+            <%= link_to "Signout", destroy_user_session_path, class:"nav-link" %>
+        <% end %>
+
       </form>
     </div>
   </div>

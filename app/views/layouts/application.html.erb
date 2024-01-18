@@ -21,6 +21,11 @@
   <body>
     <%= render "layouts/navbar" %>
     <%= yield %>
+    
+    <%# Devise Flash Messages %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= render "layouts/footer" %>
   </body>
 </html>
