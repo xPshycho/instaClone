@@ -1,5 +1,31 @@
 <%= stylesheet_link_tag("post") %>
 
+<% if user_signed_in? %>
+  <% current_user.follow_requests.each do |request| %>
+    <%= request.followerable.email %> - wants to follow you !
+    <%= button_to "Accept Request", accept_path(request.followerable) %>
+    <%= button_to "Decline Request", decline_path(request.followerable) %>
+  <% end %>
+
+  Followers:
+  <% if !current_user.followers.empty? %>
+    <% current_user.followers.each do |follower| %>
+      <p> <b> <%= link_to follower.email, follower %> </b> </p>
+    <% end %>
+  <% else %>
+    <p> None </p>
+  <% end %>
+
+  Following:
+  <% if !current_user.following.empty? %>
+    <% current_user.following.each do |following| %>
+      <p> <%= link_to following.email, following %>
+    <% end %>
+  <% else %>
+    <p> None </p>
+  <% end %>
+<% end %>
+
 <p style="color: green"><%= notice %></p>
 
 <%# <h1>Posts</h1> %>

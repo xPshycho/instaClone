@@ -48,6 +48,8 @@ gem 'bootstrap', '~> 5.3', '>= 5.3.2'
 gem "sassc-rails"
 #devise - user authentication
 gem 'devise', '~> 4.9', '>= 4.9.3'
+# tracking/ adding user follower functionality
+gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
