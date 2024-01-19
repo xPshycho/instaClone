@@ -14,6 +14,15 @@ class User < ApplicationRecord
 
   before_create :randmoize_id
 
+  # def self.ransackable_attributes(auth_object = nil)
+  #   ["bio", "created_at", "email", "id", "updated_at", "username"]
+  #   # Add other attributes that you want to allow for searching
+  # end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id email username created_at updated_at]
+  end
+
   def unfollow(user)
     followerable_relationships.where(followable_id: user.id).destroy_all
   end

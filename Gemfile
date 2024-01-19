@@ -50,6 +50,8 @@ gem "sassc-rails"
 gem 'devise', '~> 4.9', '>= 4.9.3'
 # tracking/ adding user follower functionality
 gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
+# searching functinality
+gem 'ransack', '~> 4.1', '>= 4.1.1'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
